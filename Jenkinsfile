@@ -110,10 +110,10 @@ pipeline{
                 
                 script{
                     
-                        withCredentials([usernameColonPassword(credentialsId: 'docker_hub_authontification', variable: 'docker-cred')]) {
-                            sh 'docker login -u akremgr -p ${docker-cred}'
-                            sh 'docker image push akremgr/$JOB_NAME:v1.$BUILD_ID'
-                            sh 'docker image push akremgr/$JOB_NAME:latest'
+                        withCredentials([usernameColonPassword(credentialsId: 'docker_final', variable: 'docker')])  {
+                            sh 'docker login -u akremgr -p ${docker}'
+                            sh 'docker push -a akremgr/$JOB_NAME:v1.$BUILD_ID'
+                            sh 'docker push -a akremgr/$JOB_NAME:latest'
                         
 
                  }
