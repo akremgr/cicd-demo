@@ -110,7 +110,7 @@ pipeline{
                 
                 script{
                     
-                        withCredentials([usernameColonPassword(credentialsId: 'docker_final', variable: 'docker')])  {
+                        withCredentials([usernameColonPassword(credentialsId: 'docker_cred_finall', variable: 'docker')])  {
                             sh 'docker login -u akremgr -p ${docker}'
                             sh 'docker push -a akremgr/$JOB_NAME:v1.$BUILD_ID'
                             sh 'docker push -a akremgr/$JOB_NAME:latest'
