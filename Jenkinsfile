@@ -112,8 +112,8 @@ pipeline{
                     
                         withCredentials([usernamePassword(credentialsId: 'docker_final', passwordVariable: 'docker_pass', usernameVariable: 'akremgr')])  {
                             sh 'docker login -u akremgr -p ${docker_pass}'
-                            sh 'docker push -a akremgr/$JOB_NAME:v1.$BUILD_ID'
-                            sh 'docker push -a akremgr/$JOB_NAME:latest'
+                            sh 'docker push akremgr/$JOB_NAME:v1.$BUILD_ID'
+                            sh 'docker push akremgr/$JOB_NAME:latest'
                         
 
                  }
